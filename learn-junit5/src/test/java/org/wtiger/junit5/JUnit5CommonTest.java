@@ -59,7 +59,7 @@ class JUnit5CommonTest {
 
     @Test
     void assertAll() {
-      Assertions.assertAll("All invocations are be executed independently",
+      Assertions.assertAll("All invocations are executed independently",
           () -> Assertions.assertTrue(false, "War is Peace"),
           () -> Assertions.assertFalse(true, "Freedom is Slavery"));
     }

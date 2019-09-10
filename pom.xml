@@ -11,6 +11,7 @@
     <modules>
         <module>learn-junit5</module>
         <module>learn-mockito</module>
+        <module>learn-guava</module>
     </modules>
 
 

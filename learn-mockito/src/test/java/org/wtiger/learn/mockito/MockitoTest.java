@@ -6,7 +6,6 @@ import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.mockito.AdditionalAnswers;
 import org.mockito.Answers;
-import org.mockito.BDDMockito;
 import org.mockito.InOrder;
 import org.mockito.Mock;
 import org.mockito.Mockito;
@@ -28,19 +27,19 @@ import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.BDDMockito.*;
 import static org.mockito.Mockito.doCallRealMethod;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.mockito.Mockito.withSettings;
-import static org.mockito.BDDMockito.*;
 
 @SuppressWarnings("unchecked")
 class MockitoTest {
   //Using mockito-inline
   @Mock(answer = Answers.RETURNS_SMART_NULLS) //Gives more detailed information for NPEs, but final methods will return plain null.
-          List<Object> listMock;
+  List<Object> listMock;
 
   @BeforeEach
   void setUp() {
@@ -138,7 +137,7 @@ class MockitoTest {
     void that() {
       listMock.add("value");
 
-      verify(listMock).add(argThat(argument -> ((String)argument).length() == 5));
+      verify(listMock).add(argThat(argument -> ((String) argument).length() == 5));
     }
   }
 
@@ -242,7 +241,7 @@ class MockitoTest {
     @Test
     void extraInterfaces() {
       ArrayList mock = mock(ArrayList.class, withSettings().extraInterfaces(SomethingWithSize.class));
-      SomethingWithSize byIface = (SomethingWithSize)mock; //Make possible to cast. Useful for legacy
+      SomethingWithSize byIface = (SomethingWithSize) mock; //Make possible to cast. Useful for legacy
 
       assertEquals(0, byIface.size());
     }

@@ -21,6 +21,8 @@ class JUnit5CommonTest {
   @Tag("banana")
   void testInfo(TestInfo testInfo) {
     System.out.println(testInfo.getTestClass().get());
+    
+    //Важно. Старайтесь чаще использовать assertThat или assertEquals, и реже использовать assertTrue. assertTrue - не информативен.
     Assertions.assertTrue(testInfo.getTags().contains("banana"));
   }
 
